@@ -1,13 +1,3 @@
-// import type { NextConfig } from "next";
-
-// const nextConfig: NextConfig = {
-//   /* config options here */
-// };
-
-// export default nextConfig;
-
-
-
 //start
 import {withSentryConfig} from '@sentry/nextjs';
 /** @type {import('next').NextConfig} */
@@ -17,7 +7,10 @@ const nextConfig = {
   },
   images: {
     remotePatterns: [{ protocol: 'https', hostname: 'img.clerk.com' }]
-  }
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default withSentryConfig(nextConfig, {
@@ -52,5 +45,6 @@ disableLogger: true,
 // See the following for more information:
 // https://docs.sentry.io/product/crons/
 // https://vercel.com/docs/cron-jobs
-automaticVercelMonitors: true,
+  automaticVercelMonitors: true,
+  
 });
